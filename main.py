@@ -19,7 +19,7 @@ def find_sql_data_sources(directory):
                     for line_number, line in enumerate(content, 1):
                         for pattern in patterns:
                             if re.search(pattern, line):
-                                # Exclude comments, don't need them
+                                # Exclude lines that contain //, we don't need to include commented lines
                                 match = re.match(r'^/', line.strip())
                                 if not match:
                                     sql_data_sources.append(
@@ -39,12 +39,12 @@ ws.append(["File", "Line Number", "Select Command"])
 for file, line_number, command in sql_data_sources:
     ws.append([file, line_number, command])
 
-excel_file = "sql_select_commands.xlsx"
+excel_file = "IREM/Parts/c#-files.xlsx"
 wb.save(excel_file)
 print(f"Excel file '{excel_file}' has been created.")
 
 
-# Search .ascx files
+#  Looking through ONLY .ascx files
 def find_sql_data_sources2(directory):
     sql_data_sources2 = []
     patterns = patterns = [r"<asp:SqlDataSource"]
@@ -76,6 +76,6 @@ ws.append(["File", "Line Number", "Select Command"])
 for file, line_number, command in sql_data_sources2:
     ws.append([file, line_number, command])
 
-excel_file = "ascx_sql_select_commands.xlsx"
+excel_file = "IREM/Parts/ascx-files.xlsx"
 wb.save(excel_file)
 print(f"Excel file '{excel_file}' has been created.")
