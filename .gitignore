@@ -1,0 +1,5 @@
+# Ignore all C# files
+*.cs
+
+# Ignore all ascx files
+*.ascx
