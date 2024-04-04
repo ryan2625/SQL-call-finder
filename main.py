@@ -17,7 +17,7 @@ def find_sql_data_sources(directory):
 
     # Patterns: Most important is where we actually declare the full command 
     # (ex. SqlCommand\("', r'SqlDataAdapter\("', r'SqlCommand\("
-    # Do we just want that part or do we want the extra injections that can me
+    # Do we just want that part or do we want the extra injections that can be
     # referenced as variables such as declaring
     # a primitive like string sql1 = "SELECT DATA from EXAMPLE"
     
