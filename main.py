@@ -16,12 +16,12 @@ def find_sql_data_sources(directory):
     # patterns = [r'SqlCommand\("', r'SqlDataAdapter\("', r'SqlCommand\("', r'"UPDATE ', r'"update ', r'"SELECT ', r'"select ', r'"DELETE ', r'"delete ', r'"INSERT ', r'"insert ',]
 
     # Patterns: Most important is where we actually declare the full command 
-    # (ex. SqlCommand\("', r'SqlDataAdapter\("', r'SqlCommand\("
+    # (ex. SqlCommand\(", r'SqlDataAdapter\("
     # Do we just want that part or do we want the extra injections that can me
     # referenced as variables such as declaring
     # a primitive like string sql1 = "SELECT DATA from EXAMPLE"
-    
-    patterns = [r'SqlCommand\("', r'SqlDataAdapter\("', r'SqlCommand\("']
+
+    patterns = [r'SqlCommand\("', r'SqlDataAdapter\("']
     for root, _, files in os.walk(directory):
         for file in files:
             if file.endswith(".cs") and not file.endswith(".designer.cs"):
@@ -29,7 +29,6 @@ def find_sql_data_sources(directory):
                 with open(filepath, "r") as f:
                     content = f.readlines()
                     for line_number, line in enumerate(content, 1):
-                        if (line_number > 265):
                             for pattern in patterns:
                                 if re.search(pattern, line):
                                     # Trying to ? exclude lines that contain //, we don't need to include commented lines
@@ -50,7 +49,7 @@ print(os.listdir(directory))
 wb = Workbook()
 ws = wb.active
 ws.append(["Path: IREM/Parts/.cs"])
-ws.append(["Pattern: [r'SELECT ', r'SqlCommand\("', rSqlDataAdapter\("]'])
+ws.append(['Pattern: SqlCommand\(", SqlDataAdapter("'])
 ws.append([""])
 ws.append(["File", "Line Number", "Select Command"])
 
