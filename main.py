@@ -8,7 +8,7 @@ directory = os.path.abspath("./String-Finder-1.0.0/Parts-X")
 # Looking through C# files that DON'T have .designer in the extension
 def find_sql_data_sources(directory):
     sql_data_sources = []
-    patterns = [r"SELECT ", r'SqlCommand\("', r'SqlDataAdapter\("']
+    patterns = [r"SELECT ", r"select ", r'SqlCommand\("', r'SqlDataAdapter\("']
 
     for root, _, files in os.walk(directory):
         for file in files:
