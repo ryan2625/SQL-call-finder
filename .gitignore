@@ -5,4 +5,4 @@
 *.ascx
 
 # Ignore all excel files
-*.xslx
+*.xlsx
