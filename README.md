@@ -1,7 +1,7 @@
-﻿# SQL-injection-finder
+﻿# SQL-call-finder
 
-This program will take any C# or ASP.NET files and record all instances of an SQL injection or use of an SQL controller in .NET. It will then export the results to an excel 
-sheet with four columns that contain the file name, the line number, the SQL injection, and pattern. searchDirectory.py will insert the folder path into the excel sheet and it will not create different excel sheets for different extensions, while searchFolder.py will. For general use, it is recommended you use searchDirectory.py.
+This program will take any C# or ASP.NET files and record all instances of an SQL call or use of an SQL controller in .NET. It will then export the results to an excel 
+sheet with four columns that contain the file name, the line number, the SQL call, and pattern. searchDirectory.py will insert the folder path into the excel sheet and it will not create different excel sheets for different extensions, while searchFolder.py will. For general use, it is recommended you use searchDirectory.py.
 
 ## Regex Pattern Matching
 
