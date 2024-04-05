@@ -26,17 +26,27 @@ def save_to_wb(directory: str, excel_props: tuple) -> None:
     ws = wb.active
     ws.append(["Title: ", excel_props[0]])
     ws.append(["Pattern: ", str(excel_props[1])])
-    ws.append([""])
-    ws.append(["File", "Line Number", "Select Command", "Pattern Matched"])
-    prev = ""
+    ws.append(["SQL Calls: ", len(sql_src)])
+    currentDir = ""
+    currentFile = ""
+    fileCount = 0
+    uniqueNames = []
     for root, file, line_number, command, pattern in sql_src:
         # If you are entering a new folder path, show that in the excel sheet
-        if (root != prev):
-            prev = root
+        if (root != currentDir):
+            currentDir = root
             ws.append([""])
             ws.append([""])
             ws.append(["PATH:", root])
-        ws.append([file, line_number, command, pattern])
+            ws.append(["File", "Line Number","Pattern Matched", "Select Command"])
+        if (file != currentFile ):
+            uniqueNames.append(file)
+            currentFile = file
+            fileCount +=1
+        ws.append([file, line_number, pattern, command])
+
+    ws["A4"] = "Unique Files: "
+    ws["B4"] = fileCount
     wb.save(excel_props[2])
     print(f"Excel file '{excel_props[2]}' has been created.")
     return
@@ -53,7 +63,7 @@ def handle_all_files(directory, patterns):
     return sql_to_excel
 
 def handle_os_walk(patterns, root, file, sql_to_excel):
-    # Searches your files for the specified SQL injection pattern
+    # Searches your files for the specified SQL call pattern
     filepath = os.path.join(root, file)
     # you will get charmap codec can't decode byte XXXX errors if encoding not set properly
     with open(filepath, encoding="utf8") as f:
