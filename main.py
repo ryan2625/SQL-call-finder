@@ -47,7 +47,8 @@ def save_to_wb(directory, excel_props, extension):
         case "dotnet":
             sql_src = handle_dot_net(directory, excel_props[1])
     # Don't create excel sheet if no patterns match 
-    if sql_src is None:
+    if len(sql_src) == 0:
+        print(os.listdir(directory))
         raise Exception("Your excel sheet will be null. Terminating...")
     wb = Workbook()
     ws = wb.active
