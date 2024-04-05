@@ -4,19 +4,19 @@ from openpyxl import Workbook
 
 entries = [
     (
-        os.path.abspath("../String-Finder-1.0.0/Parts-X"),
-        ["IREM/Parts/.cs", 
+        os.path.abspath("../String-Finder-1.0.0/IREM-Parts"),
+        ["Page Template Library/IREM/Parts/.cs", 
         [r'SqlDataAdapter\("', r'SqlCommand\("', r'"UPDATE', r'"update', r'"SELECT', r'"select', r'"DELETE', r'"delete', r'"INSERT', r'"insert'],
         "IREM-Parts-c#-files.xlsx"],
         "csharp"
     ),
     (
-        os.path.abspath("../String-Finder-1.0.0/Parts-X"),
-        ["IREM/Parts/.ascx", 
+        os.path.abspath("../String-Finder-1.0.0/IREM-Parts"),
+        ["Page Template Library/IREM/Parts/.ascx", 
         [r"<asp:SqlDataSource"],
         "IREM-Parts-ascx-files.xlsx"],
         "dotnet"
-    ),
+    )
     ]
     
 def save_to_wb(directory: str, excel_props: tuple, extension: str) -> None:
