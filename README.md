@@ -18,3 +18,4 @@ entries = [
 
 We will create the following excel sheet:
 
+![Picture of sample output](Sample_SQL_Finder.png)
