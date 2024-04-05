@@ -1,7 +1,7 @@
-﻿# SQL-injection-finder
+﻿# SQL-call-finder
 
-This program will take any C# or ASP.NET files and record all instances of an SQL injection or use of an SQL controller in .NET. It will then export the results to an excel 
-sheet with four columns that contain the file name, the line number, the SQL injection, and pattern. searchDirectory.py will insert the folder path into the excel sheet and it will not create different excel sheets for different extensions, while searchFolder.py will. For general use, it is recommended you use searchDirectory.py.
+This program will take any C# or ASP.NET files and record all instances of an SQL call or use of an SQL controller in .NET. It will then export the results to an excel 
+sheet with four columns that contain the file name, the line number, the SQL call, and pattern. searchDirectory.py will insert the folder path into the excel sheet and it will not create different excel sheets for different extensions, while searchFolder.py will. For general use, it is recommended you use searchDirectory.py.
 
 ## Regex Pattern Matching
 
@@ -41,12 +41,12 @@ Before you begin, make sure you have the following installed:
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/your-repository.git
+   git clone https://github.com/ryan2625/SQL-call-finder.git
 
 2. Install Dependencies
 
    ```bash
    pip install -r requirements.txt
 
-3. Run script 
+3. Set the os.path to accesss App.xaml.cs and run the script
 
