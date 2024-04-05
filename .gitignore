@@ -3,3 +3,6 @@
 
 # Ignore all ascx files
 *.ascx
+
+# Ignore all excel files
+*.xslx
