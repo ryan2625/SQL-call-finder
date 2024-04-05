@@ -11,12 +11,12 @@ want to search for, and the name of the excel sheet you want to create. The last
 element is a value specifying whether you want to search through a C# file or
 .ascx file. Edit the array of patterns to narrow or widen your search.
 
-Using the test file App.xaml.cs and searchFolder.py with these values:
+Using the test file Sample_Test.xaml.cs and searchFolder.py with these values:
 
 ```python
 entries = [
     (
-        os.path.abspath("../String-Finder-1.0.0/Parts-Test"), #Folder containing App.xaml.cs
+        os.path.abspath("../String-Finder-1.0.0/Parts-Test"), #Folder containing Sample_Test.xaml.cs
         ["Test/.cs", 
         [r'SqlDataAdapter\("', r'SqlCommand\("', r'"UPDATE', r'"update', r'"SELECT', r'"select', r'"DELETE',
 r'"delete', r'"INSERT', r'"insert', r'SELECT', r'UPDATE', r'DELETE', r'CREATE', r'WHERE', r'SqlCommand\('],
@@ -48,5 +48,5 @@ Before you begin, make sure you have the following installed:
    ```bash
    pip install -r requirements.txt
 
-3. Set the os.path to accesss App.xaml.cs and run the script
+3. Set the os.path to accesss Sample_Test.xaml.cs and run the script
 
