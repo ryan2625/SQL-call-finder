@@ -10,10 +10,10 @@ search_pattern = [r'SqlDataAdapter\("', r'SqlCommand\("', r'"UPDATE ', r'"update
 
 entries = [
   (
-    os.path.abspath("../python/String-Finder-1.0.0/IREMRedesign"),
+    os.path.abspath("../String-Finder-1.0.0/IREMRedesign"),
     ["Page Template Library: .ascx and c#", 
     search_pattern,
-    "page-template-library-all.xlsx"],
+    "IREMRedesign.xlsx"],
   )
   ]
     
