@@ -6,3 +6,5 @@
 
 # Ignore all excel files
 *.xlsx
+
+/IREMRedesign
