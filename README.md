@@ -11,17 +11,21 @@ want to search for, and the name of the excel sheet you want to create. The last
 element is a value specifying whether you want to search through a C# file or
 .ascx file. Edit the array of patterns to narrow or widen your search.
 
-Using the test file Sql_Command_Test.xlsx with these values:
+Using the test file App.xaml.cs with these values:
 
 ```python
 entries = [
     (
-        os.path.abspath("../String-Finder-1.0.0/Parts-Test"),
+        os.path.abspath("../String-Finder-1.0.0/Parts-Test"), #This contains App.xaml.cs
         ["Test/.cs", 
-        [r'SqlDataAdapter\("', r'SqlCommand\("', r'"UPDATE', r'"update', r'"SELECT', r'"select', r'"DELETE', r'"delete', r'"INSERT', r'"insert', r'SELECT', r'UPDATE', r'DELETE', r'CREATE', r'WHERE', r'SqlCommand\('],
+        [r'SqlDataAdapter\("', r'SqlCommand\("', r'"UPDATE', r'"update', r'"SELECT', r'"select', r'"DELETE',
+r'"delete', r'"INSERT', r'"insert', r'SELECT', r'UPDATE', r'DELETE', r'CREATE', r'WHERE', r'SqlCommand\('],
         "Sql_Command_Test.xlsx"],
         "csharp"
     ),
+
+#Later in the script, we also filter out commented lines with
+match = re.match(r'^/', line.strip())
 ```
 
 We will create the following excel sheet:
