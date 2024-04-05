@@ -29,7 +29,8 @@ def save_to_wb(directory: str, excel_props: tuple) -> None:
     wb = Workbook()
     ws = wb.active
     ws.append(["Title: ", excel_props[0]])
-    ws.append(["Pattern: ", str(excel_props[1])])
+    ws.append(["Patterns: ", str(excel_props[1])])
+    ws.append(["Files included/excluded: ", '(file.endswith(".cs") or file.endswith(".ascx")) and not (file.endswith(".designer.cs") or file.endswith(".Designer.cs")),  if re.match(r"^/", line.strip()): ', ".cs, .ascx, NOT .designer.cs, and excluding any commented out lines (//)"])
     ws.append(["SQL Calls: ", len(sql_src)])
     currentDir, currentFile = "", ""
     fileCount = 0
@@ -45,8 +46,8 @@ def save_to_wb(directory: str, excel_props: tuple) -> None:
             fileCount +=1
         ws.append([file, line_number, pattern, command])
 
-    ws["A4"] = "Unique Files: "
-    ws["B4"] = fileCount
+    ws["A5"] = "Unique Files: "
+    ws["B5"] = fileCount
     wb.save(excel_props[2])
     print(f"Excel file '{excel_props[2]}' has been created.")
     return
