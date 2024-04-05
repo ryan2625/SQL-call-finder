@@ -48,5 +48,5 @@ Before you begin, make sure you have the following installed:
    ```bash
    pip install -r requirements.txt
 
-3. Run script 
+3. Set the os.path to accesss App.xaml.cs and run the script
 
