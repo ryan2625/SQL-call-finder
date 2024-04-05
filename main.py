@@ -19,26 +19,7 @@ entries = [
         "dotnet"
     ),
     ]
-
-def handle_os_walk(patterns, root, file, sql_to_excel):
-    filepath = os.path.join(root, file)
-    # If you don't set the encoding here, you will
-    # keep getting charmap codec can't decode
-    # byte XXXX errors
-    with open(filepath, encoding="utf8") as f:
-        content = f.readlines()
-        for line_number, line in enumerate(content, 1):
-                for pattern in patterns:
-                    if re.search(pattern, line):
-                        # Trying to exclude commented out lines (lines that start with /)
-                        match = re.match(r'^/', line.strip())
-                        if not match:
-                            sql_to_excel.append(
-                                (file, line_number, line.strip())
-                            )
-                            # Break to prevent duplicate entries if diff patterns observed on same line
-                            break
-    return sql_to_excel
+    
 
 def save_to_wb(directory, excel_props, extension):
     match extension: 
@@ -78,6 +59,28 @@ def handle_dot_net(directory, patterns):
             if file.endswith(".ascx"):
                 handle_os_walk(patterns, root, file, sql_to_excel)      
     return sql_to_excel
+
+def handle_os_walk(patterns, root, file, sql_to_excel):
+    filepath = os.path.join(root, file)
+    # If you don't set the encoding here, you will
+    # keep getting charmap codec can't decode
+    # byte XXXX errors
+    with open(filepath, encoding="utf8") as f:
+        content = f.readlines()
+        for line_number, line in enumerate(content, 1):
+                for pattern in patterns:
+                    if re.search(pattern, line):
+                        # Trying to exclude commented out lines (lines that start with /)
+                        match = re.match(r'^/', line.strip())
+                        if not match:
+                            sql_to_excel.append(
+                                (file, line_number, line.strip())
+                            )
+                            # Break to prevent duplicate entries if diff patterns observed on same line
+                            break
+    return sql_to_excel
+
+# START SCRIPT
 
 for entry in entries:
     save_to_wb(*entry)
