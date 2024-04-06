@@ -2,8 +2,10 @@ import os
 import re
 from openpyxl import Workbook
 
-# This script doesn't separate your ascx files and c# files and also 
-# shows when the folder changes on the excel sheet
+# Author: Ryan Freas
+# Date: 4/1/2024
+# Goal: Search for instances of SQL calls (or any pattern you are looking for
+# in a directory of your choice, and then export the result to an excel sheet/csv.
 
 search_pattern = [r'SqlDataAdapter\("', r'SqlCommand\("', r'"UPDATE ', r'"update ', r'"SELECT ',
                    r'"select ', r'"DELETE ', r'"delete ', r'"INSERT ', r'"insert ', r"<asp:SqlDataSource"]
