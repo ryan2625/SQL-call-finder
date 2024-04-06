@@ -4,12 +4,20 @@ from openpyxl import Workbook
 
 # Author: Ryan Freas
 # Date: 4/1/2024
-# Goal: Search for instances of SQL calls (or any pattern you are looking for
+# Goal: Search for instances of SQL calls (or any string you are looking for)
 # in a directory of your choice, and then export the result to an excel sheet/csv.
+#
+# Update the os path to the name of the folder you want to search through, then
+# update search_pattern with the strings you want to search for.
 
 search_pattern = [r'SqlDataAdapter\("', r'SqlCommand\("', r'"UPDATE ', r'"update ', r'"SELECT ',
                    r'"select ', r'"DELETE ', r'"delete ', r'"INSERT ', r'"insert ', r"<asp:SqlDataSource"]
 
+'''
+entries is an array that contains the absolute path of the folder you want to search for, as well as 
+a tuple that has the title of your excel sheet, an array of the strings you want to search and match,
+and the name of the excel sheet you create.
+'''
 entries = [
   (
     os.path.abspath("../String-Finder-1.0.0/IREMRedesign"),
