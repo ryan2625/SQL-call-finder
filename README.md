@@ -1,7 +1,7 @@
 ﻿# SQL-call-finder
 
 This program will take any folder with C# or ASP.NET files and record all instances of an SQL call or use of an SQL controller in .NET. It will then export the results to an excel 
-sheet with four columns that contain the file name, the line number, the SQL call, and pattern. searchDirectory.py will insert the folder path into the excel sheet and it will not create different excel sheets for different extensions, while searchFolder.py will. For general use, it is recommended you use searchDirectory.py.
+sheet with four columns that contain the file name, the line number, the SQL call, and pattern. searchDirectory.py will insert the folder path into the excel sheet and it will not create different excel sheets for different extensions, while searchFolder.py will. For general use, it is recommended you use main_search_directory.py.
 
 ## Regex Pattern Matching
 
@@ -11,7 +11,7 @@ want to search for, and the name of the excel sheet you want to create. The last
 element is a value specifying whether you want to search through a C# file or
 .ascx file. Edit the array of patterns to narrow or widen your search.
 
-Using the test file Sample_Test.xaml.cs and searchFolder.py with these values:
+Using the test file Sample_Test.xaml.cs and main_search_directory.py with these values:
 
 ```python
 entries = [
